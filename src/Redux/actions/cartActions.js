@@ -4,12 +4,13 @@ import {
     SAVE_SHIPPING_INFO
 } from '../constants/cartConstants'
 import axios from 'axios'
+import { BASE_URL } from '../../constants'
 
 
 // ADD TO CART
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
 
-    const url = `/api/products/${id}`
+    const url = `${BASE_URL}/api/products/${id}`
     const { data } = await axios.get(url, {
         headers: {
             "Accept": 'application/json',

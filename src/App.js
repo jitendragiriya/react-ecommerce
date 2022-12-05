@@ -37,11 +37,12 @@ import { useSelector } from 'react-redux'
 import UpdateOrderStatus from "./screens/Admin/UpdateOrderStatus";
 import AboutUs from "./screens/More/AboutUs";
 import ForgotPassSuccess from "./screens/User/ForgotPassSuccess";
+import { BASE_URL } from "./constants";
 
 function App() {
   const { isAuthenticated } = useSelector(state => state.user)
   const [stripeApiKey, setStripeApiKey] = useState('');
-  const url = '/api/sendStripeApiKey'
+  const url = `${BASE_URL}/api/sendStripeApiKey`
 
   const getStripeApiKey = async () => {
     if (isAuthenticated) {
