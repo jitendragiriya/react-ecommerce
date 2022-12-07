@@ -5,9 +5,7 @@ import { setTheme } from '../../utils/theme/Theme';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-import MenuIcon from '@mui/icons-material/Menu';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import NightsStayIcon from '@mui/icons-material/NightsStay';
+import MenuIcon from '@mui/icons-material/Menu'; 
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, clearError } from '../../Redux/actions/userActions'

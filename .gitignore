@@ -4,3 +4,4 @@ node_modules
 default.json
 # production
 /build
+package-lock.json

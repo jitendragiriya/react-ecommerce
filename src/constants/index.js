@@ -1,1 +1,1 @@
-export const BASE_URL = "https://fine-plum-pike-boot.cyclic.app"
+export const BASE_URL = "https://backend-myshop.cyclic.app";
