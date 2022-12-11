@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import './Header.css'
-import { Link } from "react-router-dom";
-import { setTheme } from '../../utils/theme/Theme';
+import { Link } from "react-router-dom"; 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
@@ -16,19 +15,7 @@ export default function Header() {
     const dispatch = useDispatch();
     const [hamburger, setHamburger] = useState(true)
     const showSidebar = () => setHamburger(!hamburger)
-    const { user } = useSelector(state => state.user)
-    const [togClass, setTogClass] = useState('light');
-    let theme = localStorage.getItem('theme');
-
-    const handleOnClick = () => {
-        if (theme === 'theme-dark') {
-            setTheme('theme-light');
-            setTogClass('light')
-        } else {
-            setTheme('theme-dark');
-            setTogClass('dark')
-        }
-    }
+    const { user } = useSelector(state => state.user) 
 
     const { isAuthenticated, error } = useSelector(state => state.user)
 
@@ -39,13 +26,7 @@ export default function Header() {
 
     const { cartItems } = useSelector(state => state.cart)
 
-    useEffect(() => {
-        if (theme === 'theme-dark') {
-            setTogClass('dark')
-        } else if (theme === 'theme-light') {
-            setTogClass('light')
-        }
-
+    useEffect(() => { 
         let serIcon = document.querySelector('.productSearch')
         let serbox = document.querySelector('.pdsearchBox')
         serIcon.addEventListener("click", () => {
@@ -54,7 +35,7 @@ export default function Header() {
         if (error) {
             dispatch(clearError());
         }
-    }, [dispatch, theme, error])
+    }, [dispatch, error])
 
     return (
         <Fragment>
