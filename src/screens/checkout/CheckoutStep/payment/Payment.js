@@ -18,6 +18,7 @@ import CheckoutSteps from '../CheckoutStep'
 import { createOrder } from '../../../../Redux/actions/orderActions'
 import MetaData from '../../../../utils/title/MetaData'
 import { notifyError } from '../../../../utils/alerts/Alerts'
+import { BASE_URL } from '../../../../constants'
 
 const Payment = () => {
     const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
