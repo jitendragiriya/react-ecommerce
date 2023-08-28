@@ -40,6 +40,7 @@ export default function SignupForm() {
             dispatch(clearError())
         }
     }, [dispatch, isAuthenticated, history, error])
+
     // const registerDataChange = (e) => {
     //     if (e.target.name === "avatar") {
     //         const reader = new FileReader();
@@ -55,6 +56,7 @@ export default function SignupForm() {
     //         setInputs({ ...inputs, [e.target.name]: e.target.value });
     //     }
     // };
+    
     const onChange = (e) => {
         setInputs({ ...inputs, [e.target.name]: e.target.value });
     }

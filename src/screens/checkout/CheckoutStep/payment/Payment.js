@@ -51,7 +51,7 @@ const Payment = () => {
         payBtn.current.disabled = true;
 
         try {
-            const url = 'http://localhost:5000/api/payment/process'
+            const url = `${BASE_URL}/api/payment/process`
                    const { data } = await axios.post(url,
                 paymentData, {
                 headers: {
