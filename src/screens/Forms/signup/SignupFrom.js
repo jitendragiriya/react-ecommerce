@@ -27,8 +27,8 @@ export default function SignupForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErr(formValidate(inputs, avatar))
-        dispatch(register(name, email, password, confirmPassword, avatar))
+        // setErr(formValidate(inputs, avatar))
+        dispatch(register(name, email, password, confirmPassword))
     }
 
     useEffect(() => {
@@ -40,21 +40,21 @@ export default function SignupForm() {
             dispatch(clearError())
         }
     }, [dispatch, isAuthenticated, history, error])
-    const registerDataChange = (e) => {
-        if (e.target.name === "avatar") {
-            const reader = new FileReader();
+    // const registerDataChange = (e) => {
+    //     if (e.target.name === "avatar") {
+    //         const reader = new FileReader();
 
-            reader.onload = () => {
-                if (reader.readyState === 2) {
-                    setAvatar(reader.result);
-                }
-            };
+    //         reader.onload = () => {
+    //             if (reader.readyState === 2) {
+    //                 setAvatar(reader.result);
+    //             }
+    //         };
 
-            reader.readAsDataURL(e.target.files[0]);
-        } else {
-            setInputs({ ...inputs, [e.target.name]: e.target.value });
-        }
-    };
+    //         reader.readAsDataURL(e.target.files[0]);
+    //     } else {
+    //         setInputs({ ...inputs, [e.target.name]: e.target.value });
+    //     }
+    // };
     const onChange = (e) => {
         setInputs({ ...inputs, [e.target.name]: e.target.value });
     }
@@ -84,7 +84,7 @@ export default function SignupForm() {
                                             <input type="text" id="email" name="email" value={inputs.email} onChange={onChange} />
                                             {err.email && <p className='validateError'>{err.email}</p>}
                                         </div>
-                                        <div className="form__control">
+                                        {/* <div className="form__control">
                                             <label htmlFor="profile">profile image</label>
                                             {<p className='validateError img'>{'*image should be < 100kb'}</p>}
                                             <input type="file"
@@ -93,7 +93,7 @@ export default function SignupForm() {
                                                 accept="image/*" onChange={registerDataChange} />
                                             {err.avatar && <p className='validateError'>{err.avatar}</p>}
 
-                                        </div>
+                                        </div> */}
                                         <div className="form__control password">
                                             <label htmlFor="password">Password</label>
                                             <input type={passeye ? "text" : "password"} id="password" className="password" name="password" value={inputs.password} onChange={onChange} minLength='8' />

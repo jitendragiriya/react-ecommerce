@@ -34,7 +34,7 @@ export default function Footer() {
                         <span><PinterestIcon /></span>
                     </div>
                 </div>
-                <div className="credit"><p> copyright @ 2021 by <span>jitendra giriya</span></p> </div>
+                <div className="credit"><p> copyright @ 2023 by <span>jitendra giriya</span></p> </div>
             </div>
         </Fragment>
     )
