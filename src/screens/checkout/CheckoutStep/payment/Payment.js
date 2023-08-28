@@ -46,6 +46,11 @@ const Payment = () => {
         totalPrice: orderInfo.totalPrice,
     };
 
+    useEffect(() => {
+      console.log("api is running....")
+    }, [])
+    
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
