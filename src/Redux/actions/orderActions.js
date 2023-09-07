@@ -21,15 +21,14 @@ import {
   DELETE_ORDER_SUCCESS,
   DELETE_ORDER_FAIL,
   CLEAR_ERRORS,
-} from "../constants/orderConstants";
-import { BASE_URL } from "../../constants";
+} from "../constants/orderConstants"; 
 import axios from "axios";
 
 //==============================User actions=========================//
 
 // my orders
 export const myOrders = () => async (dispatch) => {
-  const url = `${BASE_URL}/api/orders/me`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/orders/me`;
   try {
     dispatch({ type: MY_ORDERS_REQUEST });
     const { data } = await axios.get(url, {
@@ -52,7 +51,7 @@ export const myOrders = () => async (dispatch) => {
 
 // my order details
 export const getOrderDetails = (id) => async (dispatch) => {
-  const url = `${BASE_URL}/api/order/${id}`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/order/${id}`;
   try {
     dispatch({ type: ORDERS_DETAIL_REQUEST });
     const { data } = await axios.get(url, {
@@ -75,7 +74,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
 
 // create new order
 export const createOrder = (order) => async (dispatch) => {
-  const url = `${BASE_URL}/api/order/new`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/order/new`;
   try {
     dispatch({ type: CREATE_ORDER_REQUEST });
     const { data } = await axios.post(url, order, {
@@ -100,7 +99,7 @@ export const createOrder = (order) => async (dispatch) => {
 
 // Get All Orders
 export const getAllOrders = () => async (dispatch) => {
-  const url = `${BASE_URL}/api/admin/orders`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/admin/orders`;
   try {
     dispatch({ type: ALL_ORDERS_REQUEST });
 
@@ -124,7 +123,7 @@ export const getAllOrders = () => async (dispatch) => {
 
 // Get user Orders
 export const getUserOrders = (id) => async (dispatch) => {
-  const url = `${BASE_URL}/api/admin/u/orders/${id}`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/admin/u/orders/${id}`;
   try {
     dispatch({ type: GET_USER_ORDERS_REQUEST });
 
@@ -148,7 +147,7 @@ export const getUserOrders = (id) => async (dispatch) => {
 
 // Update Order
 export const updateOrder = (id, status) => async (dispatch) => {
-  const url = `${BASE_URL}/api/admin/order/${id}`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/admin/order/${id}`;
   try {
     dispatch({ type: UPDATE_ORDER_DETAILS_REQUEST });
     const { data } = await axios.put(
@@ -176,7 +175,7 @@ export const updateOrder = (id, status) => async (dispatch) => {
 
 // Delete Order
 export const deleteOrder = (id) => async (dispatch) => {
-  const url = `${BASE_URL}/api/admin/order/${id}`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/admin/order/${id}`;
   try {
     dispatch({ type: DELETE_ORDER_REQUEST });
 

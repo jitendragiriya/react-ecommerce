@@ -69,7 +69,7 @@ export default function Header() {
                     }
 
                     {/* on mobile view */}
-                    <Link to='/account'>
+                    <Link to='/'>
                         <div className="header__option userAccount for__mobile">
                             {user && user.avatar && user.avatar.url ? <img className='headerProfile' src={user.avatar.url} alt='profile' /> : < AccountCircleIcon />}
                         </div>
@@ -87,7 +87,7 @@ export default function Header() {
                     <div className="productSearch"><SearchIcon />
 
                     </div>
-                    <Link to='/account'>
+                    <Link to='/'>
                         <div className="header__option userAccount not__for__mobile">
                             {user && user.avatar && user.avatar.url ? <img className='headerProfile' src={user.avatar.url} alt='profile' /> : < AccountCircleIcon />}
                         </div>

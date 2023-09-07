@@ -21,18 +21,17 @@ import {
   UPDATE_PRODUCT_DETAILS_SUCCESS,
   UPDATE_PRODUCT_DETAILS_FAIL,
   CLEAR_ERRORS,
-} from "../constants/productConstants";
-import { BASE_URL } from "../../constants";
+} from "../constants/productConstants"; 
 import axios from "axios";
 
 // GET ALL THE PRODUCTS
 export const getProduct =
   (keyword = "", currentPage = 1, price = [0, 250], category, ratings = 0) =>
   async (dispatch) => {
-    let url = `${BASE_URL}/api/product?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
+    let url = `${process.env.REACT_APP_BASE_URL}/api/product?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
 
     if (category) {
-      url = `${BASE_URL}/api/product?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`;
+      url = `${process.env.REACT_APP_BASE_URL}/api/product?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`;
     }
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
@@ -55,7 +54,7 @@ export const getProduct =
 
 // GET ADMIN PRODUCTS
 export const getAdminProduct = () => async (dispatch) => {
-  const url = `${BASE_URL}/api/admin/products`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/admin/products`;
   try {
     dispatch({ type: ADMIN_DETAILS_REQUEST });
     let { data } = await axios.get(url, {
@@ -77,7 +76,7 @@ export const getAdminProduct = () => async (dispatch) => {
 };
 
 export const getProductDetails = (id) => async (dispatch) => {
-  const url = `${BASE_URL}/api/products/${id}`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/products/${id}`;
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
     const { data } = await axios.get(url);
@@ -95,7 +94,7 @@ export const getProductDetails = (id) => async (dispatch) => {
 
 //newReview
 export const newReview = (rating, comment, productId) => async (dispatch) => {
-  const url = `${BASE_URL}/api/product/review`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/product/review`;
   try {
     dispatch({ type: NEW_REVIEW_REQUEST });
     const { data } = await axios.put(
@@ -122,7 +121,7 @@ export const newReview = (rating, comment, productId) => async (dispatch) => {
 
 //newProduct
 export const newProductCreate = (myForm) => async (dispatch) => {
-  const url = `${BASE_URL}/api/admin/product/new`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/admin/product/new`;
   try {
     dispatch({ type: NEW_PRODUCT_REQUEST });
     const { data } = await axios.post(url, myForm, {
@@ -151,7 +150,7 @@ export const newProductCreate = (myForm) => async (dispatch) => {
 
 //newProduct
 export const updateProduct = (id, myForm) => async (dispatch) => {
-  const url = `${BASE_URL}/api/admin/product/update/${id}`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/admin/product/update/${id}`;
   try {
     dispatch({ type: UPDATE_PRODUCT_DETAILS_REQUEST });
     const { data } = await axios.put(url, myForm, {
@@ -180,7 +179,7 @@ export const updateProduct = (id, myForm) => async (dispatch) => {
 
 //deleteProduct
 export const adminProductDelete = (id) => async (dispatch) => {
-  const url = `${BASE_URL}/api/admin/product/update/${id}`;
+  const url = `${process.env.REACT_APP_BASE_URL}/api/admin/product/update/${id}`;
   try {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
     const { data } = await axios.delete(url, {

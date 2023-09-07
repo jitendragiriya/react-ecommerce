@@ -17,8 +17,7 @@ import { Typography } from "@mui/material";
 import CheckoutSteps from '../CheckoutStep'
 import { createOrder } from '../../../../Redux/actions/orderActions'
 import MetaData from '../../../../utils/title/MetaData'
-import { notifyError } from '../../../../utils/alerts/Alerts'
-import { BASE_URL } from '../../../../constants'
+import { notifyError } from '../../../../utils/alerts/Alerts' 
 
 const Payment = () => {
     const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -57,7 +56,7 @@ const Payment = () => {
         payBtn.current.disabled = true;
 
         try {
-            const url = `${BASE_URL}/api/payment/process`
+            const url = `${process.env.REACT_APP_BASE_URL}/api/payment/process`
                    const { data } = await axios.post(url,
                 paymentData, {
                 headers: {

@@ -36,14 +36,13 @@ import {
     DELETE_USER_FAIL,
     CLEAR_ERRORS
 } from '../constants/userConstants'
-
-import { BASE_URL } from '../../constants'
+ 
 import axios from 'axios';
 
 //=============================user actions controller=========================================//
 // LOGIN USER
 export const login = (email, password) => async (dispatch) => {
-    const url = `${BASE_URL}/api/login`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/login`;
     try {
         dispatch({ type: USER_LOGIN_REQUEST });
         const { data } = await axios.post(url,
@@ -69,7 +68,7 @@ export const login = (email, password) => async (dispatch) => {
 // REGISTER USER
 
 export const register = (name, email, password, confirmPassword, avatar) => async (dispatch) => {
-    const url = `${BASE_URL}/api/register`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/register`;
     try {
         dispatch({ type: USER_REGISTER_REQUEST });
         const { data } = await axios.post(url,
@@ -102,7 +101,7 @@ export const register = (name, email, password, confirmPassword, avatar) => asyn
 // LOGGEDD_IN USER
 
 export const loggedInUser = () => async (dispatch) => {
-    const url = `${BASE_URL}/api/me`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/me`;
     try {
         dispatch({ type: LOGGED_IN_USER_REQUEST });
         const { data } = await axios.get(url, {
@@ -127,7 +126,7 @@ export const loggedInUser = () => async (dispatch) => {
 // LOGOUT USER
 
 export const logout = () => async (dispatch) => {
-    const url = `${BASE_URL}/api/logout`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/logout`;
     try {
         await axios.get(url, {
             headers: {
@@ -151,7 +150,7 @@ export const logout = () => async (dispatch) => {
 // UPDATE FROMFILE USER
 
 export const updateProfile = (name, email, avatar) => async (dispatch) => {
-    const url = `${BASE_URL}/api/me/update`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/me/update`;
     try {
         dispatch({ type: UPDATE_PROFILE_REQUEST });
         const { data } = await axios.put(url,
@@ -184,7 +183,7 @@ export const updateProfile = (name, email, avatar) => async (dispatch) => {
 // UPDATE PASSWORD --user
 
 export const updatePassword = (oldPassword, newPassword, confirmPassword) => async (dispatch) => {
-    const url = `${BASE_URL}/api/password/update`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/password/update`;
     try {
         dispatch({ type: UPDATE_PASSWORD_REQUEST });
         const { data } = await axios.put(url,
@@ -210,7 +209,7 @@ export const updatePassword = (oldPassword, newPassword, confirmPassword) => asy
 // FORGOT PASSWORD --user
 
 export const forgotPassword = (email) => async (dispatch) => {
-    const url = `${BASE_URL}/api/password/forgot`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/password/forgot`;
     try {
         dispatch({ type: FORGOT_PASSWORD_REQUEST });
         const { data } = await axios.post(url,
@@ -236,7 +235,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 // RESET PASSWORD --user
 
 export const resetPassword = (token, password, confirmPassword) => async (dispatch) => {
-    const url = `${BASE_URL}/api/password/reset/${token}`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/password/reset/${token}`;
     try {
         dispatch({ type: RESET_PASSWORD_REQUEST });
         const { data } = await axios.put(url,
@@ -263,7 +262,7 @@ export const resetPassword = (token, password, confirmPassword) => async (dispat
 
 // get All Users
 export const getAllUsers = () => async (dispatch) => {
-    const url = `${BASE_URL}/api/admin/users`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/admin/users`;
     try {
         dispatch({ type: ALL_USERS_REQUEST });
         const { data } = await axios.get(url, {
@@ -287,7 +286,7 @@ export const getAllUsers = () => async (dispatch) => {
 
 // get Users details
 export const getUserDetails = (id) => async (dispatch) => {
-    const url = `${BASE_URL}/api/admin/user/${id}`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/admin/user/${id}`;
     try {
         dispatch({ type: GET_USER_DETAILS_REQUEST });
         const { data } = await axios.get(url, {
@@ -311,7 +310,7 @@ export const getUserDetails = (id) => async (dispatch) => {
 
 // update user 
 export const updateUserDetails = (id, role) => async (dispatch) => {
-    const url = `${BASE_URL}/api/admin/user/${id}`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/admin/user/${id}`;
     try {
         dispatch({ type: UPDATE_USER_REQUEST });
         const { data } = await axios.put(url,
@@ -336,7 +335,7 @@ export const updateUserDetails = (id, role) => async (dispatch) => {
 
 // delete user  
 export const deleteUser = (id) => async (dispatch) => {
-    const url = `${BASE_URL}/api/admin/user/${id}`;
+    const url = `${process.env.REACT_APP_BASE_URL}/api/admin/user/${id}`;
     try {
         dispatch({ type: DELETE_USER_REQUEST });
         const { data } = await axios.delete(url, {
